@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%=user.firstname %>
+    </title>
+    <link rel="stylesheet" href="/stylesheets/user.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="/" class="site-logo">Home</a>
+    </header>
+
+    <main class="container">
+        <h2 class="page-title">
+            <%= user.firstname %>'s Profile
+        </h2>
+
+        <div class="profile-card">
+            <div class="picDiv">
+                <img src="<%= user.avatarUrl %>" class="pic">
+            </div>
+            <ul class="info-list">
+                <li><strong>Firstname:</strong>
+                    <%= user.firstname %>
+                </li>
+                <li><strong>Lastname:</strong>
+                    <%= user.lastname %>
+                </li>
+                <li><strong>Age:</strong>
+                    <%= user.age %>
+                </li>
+                <li><strong>Email:</strong>
+                    <%= user.email %>
+                </li>
+            </ul>
+
+            <form class="add-photo" action="/user/<%= user.id %>/avatar" method="post" enctype="multipart/form-data">
+                <label for="file" class="fileLabel">Change photo</label>
+                <input type="file" id="file" name="avatar">
+                <button type="submit" class="uploadBtn">Upload</button>
+            </form>
+
+            <button id="remBtn" class="remBtn" data-id="<%= user._id %>">Remove account</button>
+        </div>
+
+        <div class="edit-form">
+            <h3>Edit user</h3>
+            <div class="field">
+                <label for="firstname">Firstname</label>
+                <input type="text" id="firstname" value="<%= user.firstname %>">
+            </div>
+            <div class="field">
+                <label for="lastname">Lastname</label>
+                <input type="text" id="lastname" value="<%= user.lastname %>">
+            </div>
+            <div class="field">
+                <label for="age">Age</label>
+                <input type="number" id="age" value="<%= user.age %>">
+            </div>
+            <div class="field">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" value="<%= user.email %>">
+            </div>
+            <button id="editBtn" data-id="<%= user._id %>">Save changes</button>
+        </div>
+    </main>
+
+    <script src="/javascripts/index.js"></script>
+</body>
+
+
+</html>

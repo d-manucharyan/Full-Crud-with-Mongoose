@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>My Homepage</title>
+    <link rel='stylesheet' href='/stylesheets/logged.css' />
+</head>
+
+<body>
+
+    <header>
+        <a href="/" class="logo">MyWebsite</a>
+        <p style="color: white;"> <i class="fa-solid fa-cart-shopping"></i> <span class="line"></span> Welcome, <%=
+                user.firstname %> <span class="line"></span> <a class = "profile" href='/user/<%=user.id %>'>Profile</a></p>
+    </header>
+
+    <section class="hero">
+        <h1>Our Products</h1>
+        <div class="products">
+            <% products.forEach(prod=> { %>
+                <div class="product-card">
+                    <h2>
+                        <%= prod.title %>
+                    </h2>
+                    <p>
+                        <%= prod.description %>
+                    </p>
+                    <div class="price">$<%= prod.price %>
+                    </div>
+                    <button>Add to Cart</button>
+                </div>
+                <% }) %>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 MyWebsite</p>
+    </footer>
+</body>
+
+</html>

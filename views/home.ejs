@@ -1,0 +1,49 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Homepage</title>
+    <link rel='stylesheet' href='/stylesheets/home.css' />
+  </head>
+
+  <body>
+
+    <header>
+      <a href="/" class="logo">MyWebsite</a>
+      <nav>
+        <ul>
+          <li><a href="/users">Users</a></li>
+          <li><a href="/auth/register">Register</a></li>
+          <li><a href="/auth/login">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1>Our Products</h1>
+
+      <div class="products">
+        <% products.forEach(prod=> { %>
+          <div class="product-card">
+            <h2>
+              <%= prod.title %>
+            </h2>
+            <p>
+              <%= prod.description %>
+            </p>
+            <div class="price">$<%= prod.price %>
+            </div>
+            <button>Add to Cart</button>
+          </div>
+          <% }) %>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 MyWebsite</p>
+    </footer>
+  </body>
+
+  </html>
