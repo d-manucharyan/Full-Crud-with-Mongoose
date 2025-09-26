@@ -37,13 +37,19 @@
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <div class="password-input">
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <span id="togglePassword" class="toggle-password">👁️</span>
+                </div>
             </div>
+
             <input type="file" name="avatar">
 
             <button type="submit" class="btn">Register</button>
         </form>
     </div>
+
+    <script src="/javascripts/pass.js"></script>
 </body>
 
 </html>

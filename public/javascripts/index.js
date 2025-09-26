@@ -1,18 +1,3 @@
-// window.addEventListener('click', (e) => {
-//     const id = e.target.dataset.id
-//     if (id) {
-//         fetch(`/delete/${id}`, {
-//             method: "DELETE",
-//         })
-//             .then(res => res.json())
-//             .then(res => {
-//                 console.log(res)
-//                 window.location.href = '/users'                
-//             })
-//             .catch(err => console.log("Delete request failed:", err))
-//     }
-// })
-
 window.addEventListener("click", (e) => {
     const id = e.target.dataset.id;
     if (e.target.id === 'remBtn') {

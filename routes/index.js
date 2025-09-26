@@ -3,21 +3,7 @@ const { AuthController } = require('../controller/AuthController');
 var express = require('express');
 const authController = new AuthController()
 var router = express.Router();
-const path = require('path')
-
-
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        console.log(file)
-        cb(null, 'uploads')
-    },
-    filename: function (req, file, cb) {
-        const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-        cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname))
-    }
-})
-
-const upload = multer({ storage: storage })
+const upload = require('../middleware/multer');
 
 
 router.get('/', authController.getHome)

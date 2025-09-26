@@ -12,7 +12,7 @@
     <header class="site-header">
         <a href="/" class="site-logo">Home</a>
     </header>
-    
+
     <div class="container">
         <h2>Login</h2>
         <form action="/auth/login" method="post" class="login-form">
@@ -23,13 +23,18 @@
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <div class="password-input">
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    <span id="togglePassword" class="toggle-password">👁️</span>
+                </div>
             </div>
 
             <button type="submit" class="btn">Login</button>
 
         </form>
     </div>
+
+    <script src="/javascripts/pass.js"> </script>
 </body>
 
 </html>
