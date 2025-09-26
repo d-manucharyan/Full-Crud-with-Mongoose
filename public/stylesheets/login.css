@@ -81,13 +81,13 @@ body {
 }
 
 
-.password-wrapper {
+.password-input {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.password-wrapper input {
+.password-input input {
   width: 100%;
   padding-right: 40px;
 }
