@@ -38,7 +38,11 @@ class AuthController {
         try {
             const validated = await schema.validateAsync(req.body)
             if (req.file) {
-                await req.app.locals.services.users.postUser({ ...validated, avatarUrl: `/${req.file.filename}` })
+                if (req.file.size > 10_000_000) {
+                    return res.json({ message: "Photo can't be bigger than 10 mb" })
+                } else {
+                    await req.app.locals.services.users.postUser({ ...validated, avatarUrl: `/${req.file.filename}` })
+                }
             } else {
                 await req.app.locals.services.users.postUser({ ...validated, avatarUrl: '/default.png' })
             }
